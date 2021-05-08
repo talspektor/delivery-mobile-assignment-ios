@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct PickupPoint: Codable {
+class MyLocation: Codable, Equatable {
+    static func == (lhs: MyLocation, rhs: MyLocation) -> Bool {
+        lhs.geo.latitue == rhs.geo.latitue && lhs.geo.longitude == rhs.geo.longitude
+    }
+
     enum Action: String, Codable {
         case navigateToPickup
         case pickup
@@ -37,9 +41,16 @@ struct PickupPoint: Codable {
         }
     }
     let type: String
-    let state: State
+    var state: State
     let geo: Geo
     let parcels: [Parcels]?
+
+    init(type: String, state: State, geo: Geo, parcels: [Parcels]?) {
+        self.type = type
+        self.state = state
+        self.geo = geo
+        self.parcels = parcels
+    }
 }
 
 struct Geo: Codable {

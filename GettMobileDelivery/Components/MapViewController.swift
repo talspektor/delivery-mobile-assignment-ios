@@ -9,11 +9,41 @@ import CoreLocation
 import UIKit
 import MapKit
 import GoogleMaps
+import Combine
 
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var goToButton: UIButton!
+
+//    var notifyFinish = PassthroughSubject<MyLocation, Never>()
+
+    private var locationManager = CLLocationManager()
+    private let geoCoder = CLGeocoder()
+    private var viewModel: MapViewModel!
+    private var directionsArray = [MKDirections]()
+
+    func configur(with viewModel: MapViewModel) {
+        self.viewModel = viewModel
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupLocationManager()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        setupViews()
+        centerViewOnUserLocation()
+    }
+
+    private func setupViews() {
+        setupMapView()
+        setupGoToNexButton()
+    }
 
     private func setupMapView() {
         mapView.delegate = self
@@ -22,43 +52,11 @@ class MapViewController: UIViewController {
         mapView.userTrackingMode = .follow
         mapView.cameraZoomRange = MKMapView.CameraZoomRange(minCenterCoordinateDistance: 100,
                                                             maxCenterCoordinateDistance: 30)
-        let location = CLLocationCoordinate2D(latitude: 32.0853,
-                                              longitude: 34.7818)
-        mapView.setCenter(location, animated: true)
         mapView.showsUserLocation = true
     }
 
     private func setupGoToNexButton() {
-        goToButton.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        goToButton.backgroundColor = .red
-        goToButton.setTitleColor(.black, for: .normal)
-        goToButton.setTitle("Go To Next", for: .normal)
         goToButton.layer.cornerRadius = 8
-    }
-
-    private var locationManager = CLLocationManager()
-    private let geoCoder = CLGeocoder()
-    private var viewModel = MapViewModel()
-    private var directionsArray = [MKDirections]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViews()
-        setupLocationManager()
-        centerViewOnUserLocation()
-        fetchData()
-        viewModel.dataModel.forEach { pickupPoint in
-            addMarks(for: pickupPoint)
-        }
-    }
-
-    private func setupViews() {
-        setupMapView()
-        setupGoToNexButton()
-    }
-
-    private func fetchData() {
-        viewModel.fetchData()
     }
 
     private func setupLocationManager() {
@@ -70,16 +68,11 @@ class MapViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
 
-    private func addMarks(for pickupPoint: PickupPoint) {
-        let annotation = viewModel.getAnnotation(for: pickupPoint)
-        mapView.addAnnotation(annotation)
-    }
-
     private func centerViewOnUserLocation() {
         guard let location = locationManager.location?.coordinate else { return }
         let regin = MKCoordinateRegion.init(center: location,
-                                            latitudinalMeters: viewModel.regionInMetars,
-                                            longitudinalMeters: viewModel.regionInMetars)
+                                            latitudinalMeters: viewModel!.regionInMetars,
+                                            longitudinalMeters: viewModel!.regionInMetars)
         mapView.setRegion(regin, animated: true)
     }
 
@@ -95,8 +88,9 @@ class MapViewController: UIViewController {
             return
         }
 
-        let destinatonCoordinate = getCenterLocation(for: mapView).coordinate//TODO: set it to the real
-        let request = viewModel.createDirectionsrequest(from: location, to: destinatonCoordinate)
+        let destinatonCoordinate = CLLocationCoordinate2D(latitude: viewModel!.nextLocation.geo.latitue,
+                                                          longitude: viewModel!.nextLocation.geo.longitude)
+        let request = viewModel!.createDirectionsrequest(from: location, to: destinatonCoordinate)
         let directions = MKDirections(request: request)
         resetMapVeiw(withNew: directions)
 
@@ -104,7 +98,7 @@ class MapViewController: UIViewController {
     }
 
     private func resetMapVeiw(withNew directions: MKDirections) {
-        mapView.removeOverlay(mapView.overlays as! MKOverlay)
+        mapView.removeOverlays(mapView.overlays)
         directionsArray.append(directions)
         let _ = directionsArray.map { $0.cancel() }
     }
@@ -125,6 +119,12 @@ class MapViewController: UIViewController {
     @IBAction func GoToNexButtonTapped(_ sender: UIButton) {
         getDirections()
     }
+    @IBAction func finishButtonTpped(_ sender: Any) {
+//        notifyFinish.send(viewModel.nextLocation)
+        NotificationCenter.default.post(name: Notification.Name.finishTask, object: viewModel.nextLocation)
+
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
@@ -132,10 +132,10 @@ extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let center = getCenterLocation(for: mapView)
 
-        guard let previousLocation = viewModel.previousLocation else { return }
+        guard let previousLocation = viewModel!.previousLocation else { return }
 
         guard center.distance(from: previousLocation) > 50 else { return }
-        viewModel.previousLocation = center
+        viewModel!.previousLocation = center
 
         geoCoder.cancelGeocode()
 

@@ -8,16 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		07E2776ADE53E29B1DC2719A /* Pods_GettMobileDelivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C825DDB06594A0E2B233C8A7 /* Pods_GettMobileDelivery.framework */; };
-		43A433F526446A0B00CE6B10 /* PickupPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A433F426446A0B00CE6B10 /* PickupPointsViewController.swift */; };
+		43A433F526446A0B00CE6B10 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A433F426446A0B00CE6B10 /* LocationsViewController.swift */; };
 		43A433F726446ABA00CE6B10 /* Addresses.json in Resources */ = {isa = PBXBuildFile; fileRef = 43A433F626446ABA00CE6B10 /* Addresses.json */; };
 		43A433F92645746800CE6B10 /* journey.json in Resources */ = {isa = PBXBuildFile; fileRef = 43A433F82645746800CE6B10 /* journey.json */; };
-		43A433FE264576FC00CE6B10 /* PickupPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A433FD264576FC00CE6B10 /* PickupPoint.swift */; };
-		43A434002645800D00CE6B10 /* PickupPointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A433FF2645800D00CE6B10 /* PickupPointTableViewCell.swift */; };
-		43A434032645807700CE6B10 /* PickupPointTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A434022645807700CE6B10 /* PickupPointTableViewCell.xib */; };
+		43A433FE264576FC00CE6B10 /* MyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A433FD264576FC00CE6B10 /* MyLocation.swift */; };
+		43A434002645800D00CE6B10 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A433FF2645800D00CE6B10 /* LocationTableViewCell.swift */; };
+		43A434032645807700CE6B10 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A434022645807700CE6B10 /* LocationTableViewCell.xib */; };
 		43A434072646747200CE6B10 /* FileDataPrivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A434062646747200CE6B10 /* FileDataPrivider.swift */; };
 		43A4340B2646765B00CE6B10 /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A4340A2646765B00CE6B10 /* JSONDecoder+Extension.swift */; };
 		43A4340D26467D4700CE6B10 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A4340C26467D4700CE6B10 /* Errors.swift */; };
 		43A4341126468C2C00CE6B10 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A4341026468C2C00CE6B10 /* MapViewModel.swift */; };
+		43A434132646A9D600CE6B10 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A434122646A9D600CE6B10 /* LocationViewModel.swift */; };
+		43A434162646B7A500CE6B10 /* JSONEncoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A434152646B7A500CE6B10 /* JSONEncoder+Extension.swift */; };
+		43A434182646E78900CE6B10 /* Notification+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A434172646E78900CE6B10 /* Notification+Extention.swift */; };
 		F4B1672F2642C9F600590287 /* GoogleServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4B1672E2642C9F600590287 /* GoogleServices-Info.plist */; };
 		F4BDE32126427635006FC21D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BDE32026427635006FC21D /* AppDelegate.swift */; };
 		F4BDE32326427635006FC21D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BDE32226427635006FC21D /* SceneDelegate.swift */; };
@@ -28,16 +31,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		43A433F426446A0B00CE6B10 /* PickupPointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupPointsViewController.swift; sourceTree = "<group>"; };
+		43A433F426446A0B00CE6B10 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		43A433F626446ABA00CE6B10 /* Addresses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Addresses.json; sourceTree = "<group>"; };
 		43A433F82645746800CE6B10 /* journey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = journey.json; path = GettMobileDelivery/journey.json; sourceTree = SOURCE_ROOT; };
-		43A433FD264576FC00CE6B10 /* PickupPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupPoint.swift; sourceTree = "<group>"; };
-		43A433FF2645800D00CE6B10 /* PickupPointTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupPointTableViewCell.swift; sourceTree = "<group>"; };
-		43A434022645807700CE6B10 /* PickupPointTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickupPointTableViewCell.xib; sourceTree = "<group>"; };
+		43A433FD264576FC00CE6B10 /* MyLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocation.swift; sourceTree = "<group>"; };
+		43A433FF2645800D00CE6B10 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		43A434022645807700CE6B10 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
 		43A434062646747200CE6B10 /* FileDataPrivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDataPrivider.swift; sourceTree = "<group>"; };
 		43A4340A2646765B00CE6B10 /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
 		43A4340C26467D4700CE6B10 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		43A4341026468C2C00CE6B10 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		43A434122646A9D600CE6B10 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		43A434152646B7A500CE6B10 /* JSONEncoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+Extension.swift"; sourceTree = "<group>"; };
+		43A434172646E78900CE6B10 /* Notification+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extention.swift"; sourceTree = "<group>"; };
 		78139C859339A4F2746E6514 /* Pods-GettMobileDelivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GettMobileDelivery.release.xcconfig"; path = "Target Support Files/Pods-GettMobileDelivery/Pods-GettMobileDelivery.release.xcconfig"; sourceTree = "<group>"; };
 		C825DDB06594A0E2B233C8A7 /* Pods_GettMobileDelivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GettMobileDelivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3244AAC6C3F524080D2EE68 /* Pods-GettMobileDelivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GettMobileDelivery.debug.xcconfig"; path = "Target Support Files/Pods-GettMobileDelivery/Pods-GettMobileDelivery.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 				F4B1672E2642C9F600590287 /* GoogleServices-Info.plist */,
 				F4BDE32026427635006FC21D /* AppDelegate.swift */,
 				F4BDE32226427635006FC21D /* SceneDelegate.swift */,
+				43A434172646E78900CE6B10 /* Notification+Extention.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -99,22 +106,23 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
-		43A434012645803D00CE6B10 /* PickupPoint */ = {
+		43A434012645803D00CE6B10 /* Location */ = {
 			isa = PBXGroup;
 			children = (
 				43A43404264582C300CE6B10 /* Model */,
-				43A433F426446A0B00CE6B10 /* PickupPointsViewController.swift */,
-				43A433FF2645800D00CE6B10 /* PickupPointTableViewCell.swift */,
-				43A434022645807700CE6B10 /* PickupPointTableViewCell.xib */,
+				43A434122646A9D600CE6B10 /* LocationViewModel.swift */,
+				43A433F426446A0B00CE6B10 /* LocationsViewController.swift */,
+				43A433FF2645800D00CE6B10 /* LocationTableViewCell.swift */,
+				43A434022645807700CE6B10 /* LocationTableViewCell.xib */,
 			);
-			name = PickupPoint;
+			name = Location;
 			path = ..;
 			sourceTree = "<group>";
 		};
 		43A43404264582C300CE6B10 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				43A433FD264576FC00CE6B10 /* PickupPoint.swift */,
+				43A433FD264576FC00CE6B10 /* MyLocation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,6 +130,7 @@
 		43A434052646745500CE6B10 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
+				43A434142646B77E00CE6B10 /* Encode */,
 				43A434092646764800CE6B10 /* Decode */,
 				43A433FA2645747500CE6B10 /* Data */,
 				43A434062646747200CE6B10 /* FileDataPrivider.swift */,
@@ -142,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				43A4340F26468C0B00CE6B10 /* MapConponent */,
-				43A434012645803D00CE6B10 /* PickupPoint */,
+				43A434012645803D00CE6B10 /* Location */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -154,6 +163,14 @@
 				43A4341026468C2C00CE6B10 /* MapViewModel.swift */,
 			);
 			name = MapConponent;
+			sourceTree = "<group>";
+		};
+		43A434142646B77E00CE6B10 /* Encode */ = {
+			isa = PBXGroup;
+			children = (
+				43A434152646B7A500CE6B10 /* JSONEncoder+Extension.swift */,
+			);
+			name = Encode;
 			sourceTree = "<group>";
 		};
 		652779AD5493FEAA6D205324 /* Pods */ = {
@@ -186,10 +203,10 @@
 		F4BDE31F26427635006FC21D /* GettMobileDelivery */ = {
 			isa = PBXGroup;
 			children = (
-				43A4340E26468BF100CE6B10 /* Components */,
-				43A434052646745500CE6B10 /* DataProvider */,
 				43A433F3264459A200CE6B10 /* SupportingFiles */,
 				43A433F22644598500CE6B10 /* Assets */,
+				43A434052646745500CE6B10 /* DataProvider */,
+				43A4340E26468BF100CE6B10 /* Components */,
 				F4BDE32626427635006FC21D /* Main.storyboard */,
 				F4BDE32E26427637006FC21D /* Info.plist */,
 				43A433F626446ABA00CE6B10 /* Addresses.json */,
@@ -260,7 +277,7 @@
 				F4BDE32D26427637006FC21D /* LaunchScreen.storyboard in Resources */,
 				43A433F92645746800CE6B10 /* journey.json in Resources */,
 				F4BDE32A26427637006FC21D /* Assets.xcassets in Resources */,
-				43A434032645807700CE6B10 /* PickupPointTableViewCell.xib in Resources */,
+				43A434032645807700CE6B10 /* LocationTableViewCell.xib in Resources */,
 				F4B1672F2642C9F600590287 /* GoogleServices-Info.plist in Resources */,
 				F4BDE32826427635006FC21D /* Main.storyboard in Resources */,
 			);
@@ -315,12 +332,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43A433FE264576FC00CE6B10 /* PickupPoint.swift in Sources */,
+				43A433FE264576FC00CE6B10 /* MyLocation.swift in Sources */,
+				43A434162646B7A500CE6B10 /* JSONEncoder+Extension.swift in Sources */,
 				43A4341126468C2C00CE6B10 /* MapViewModel.swift in Sources */,
+				43A434132646A9D600CE6B10 /* LocationViewModel.swift in Sources */,
 				F4BDE32526427635006FC21D /* MapViewController.swift in Sources */,
-				43A434002645800D00CE6B10 /* PickupPointTableViewCell.swift in Sources */,
+				43A434002645800D00CE6B10 /* LocationTableViewCell.swift in Sources */,
 				43A4340B2646765B00CE6B10 /* JSONDecoder+Extension.swift in Sources */,
-				43A433F526446A0B00CE6B10 /* PickupPointsViewController.swift in Sources */,
+				43A434182646E78900CE6B10 /* Notification+Extention.swift in Sources */,
+				43A433F526446A0B00CE6B10 /* LocationsViewController.swift in Sources */,
 				F4BDE32126427635006FC21D /* AppDelegate.swift in Sources */,
 				F4BDE32326427635006FC21D /* SceneDelegate.swift in Sources */,
 				43A4340D26467D4700CE6B10 /* Errors.swift in Sources */,

@@ -11,9 +11,14 @@ class MapViewModel {
 
     private let filedataProvider = FileDataPrivider()
     let regionInMetars = 10000.0
-    var dataModel = [PickupPoint]()
+
     var currentLocation: CLLocation?
     var previousLocation: CLLocation?
+    let nextLocation: MyLocation
+
+    init(with nextLocation: MyLocation) {
+        self.nextLocation = nextLocation
+    }
 
     func createDirectionsrequest(from coordinate: CLLocationCoordinate2D, to: CLLocationCoordinate2D) -> MKDirections.Request {
         let destinatonCoordinate = to//TODO: set it to the real
@@ -28,20 +33,11 @@ class MapViewModel {
         return request
     }
 
-    func fetchData() {
-        do {
-            let data = try filedataProvider.readLocalFile(forName: "journey")
-            dataModel = try JSONDecoder().decode(jsonData: data, type:[PickupPoint].self)
-        } catch {
-            debugPrint(error.localizedDescription)
-        }
-    }
-
-    func getAnnotation(for pickupPoint: PickupPoint) -> MKPointAnnotation {
-        let location = CLLocationCoordinate2D(latitude: pickupPoint.geo.latitue, longitude: pickupPoint.geo.longitude)
+    func getAnnotation() -> MKPointAnnotation {
+        let location = CLLocationCoordinate2D(latitude: nextLocation.geo.latitue, longitude: nextLocation.geo.longitude)
         let annotation = MKPointAnnotation()
-        annotation.title = pickupPoint.type
-        annotation.subtitle = pickupPoint.state.getValue
+        annotation.title = nextLocation.type
+        annotation.subtitle = nextLocation.state.getValue
         annotation.coordinate = location
         return annotation
     }
