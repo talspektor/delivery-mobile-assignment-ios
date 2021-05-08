@@ -1,0 +1,28 @@
+{
+    "results" : [
+        "geometry" : {
+            "location" : {
+                "lat" : 32.0853,
+                "lng" : 34.7818
+            }
+            "icon" : "",
+            "name" : "Tel Aviv"
+        },
+        "geometry" : {
+            "location" : {
+                "lat" : 31.7683,
+                "lng" : 35.2137
+            }
+            "icon" : "",
+            "name" : "Jerusalem"
+        },
+        "geometry" : {
+            "location" : {
+                "lat" : 32.7940,
+                "lng" : 34.9896
+            }
+            "icon" : "",
+            "name" : "Hifa"
+        }
+    ]
+}
